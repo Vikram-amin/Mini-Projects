@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Movie Website 1</title>
+
+    <style>
+
+        body{
+            background-color: mediumpurple;
+        }
+            #parent{   
+            border: 1.5px solid black;
+            padding: 10px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: flex-end;
+            font-size: 20px;
+            font-weight: 700;
+
+        }
+
+        #parent > a{ 
+            color: black;
+            margin-right: 20px;
+            text-decoration: none;
+           
+            
+            
+        }
+        #login{
+            width: 10%;
+        }
+        #data{
+            display: flex;
+            margin-left: 41%;
+        }
+        input{
+            margin-bottom: 10%;
+        }
+         h1{
+            text-align: center;
+            margin-top: 5%;
+         }
+
+
+         #sign{
+            max-width: 300px;
+            margin: auto;  
+            background-color:mediumpurple;
+               
+         }
+         input{
+             width: 97%;
+             height: 30px;
+             text-align: center;
+             font-size: 16px;
+             font-weight: 700;
+             border: 2px solid teal;
+             
+         }
+         button{
+             width: 45%;
+             height: 30px;
+             margin-left: 30%;
+             background-color: teal;
+             color: white;
+             font-size: 16px;
+             font-weight: 700;
+
+         }
+     
+
+    </style>
+
+</head>
+<body>
+   <div id="parent">
+      
+      <a onclick="error()">Home</a>
+      <a href="Login.html">Login</a>
+      <a href="Signup.html">Signup</a> 
+   </div>
+
+
+    <h1>Sign up</h1>
+    
+<div id="sign">
+       <form id="myform">
+       <input type="text" id="name" placeholder="Name"/> 
+       <input type="text" id="number" placeholder="Contact number"/>
+       <input type="text"  id="email" placeholder="Email"> 
+       <input type="password"  id="password" placeholder="Password">
+    </form>
+
+    <button onclick="registerHere()" >Submit</button>
+
+    </div>
+    <div id="data"></div>
+
+
+    <script>
+let data_div=document.getElementById('data')
+let arr=[]
+let flag=0;
+function registerHere(){
+    let form=document.getElementById("myform");
+    let name=form.name.value;
+    let number=form.number.value;
+    let email=form.email.value;
+    let password=form.password.value;
+
+        let location={
+        name,
+        number,
+        email,
+        password,
+    };
+
+
+    if(name=="" || number=="" || email=="" || password==""){
+        alert("plase fill all details")
+
+    }
+
+
+    arr=localStorage.getItem('locations');
+    if(arr==null){
+        arr=[];
+    }else{
+        arr=JSON.parse(localStorage.getItem("locations"));
+    }
+     arr.push(location);
+     localStorage.setItem("locations", JSON.stringify(arr));
+     flag=1
+   
+}
+  console.log(arr)
+
+
+        // for (let i = 0; i < arr.length; i++) { 
+        //     if(arr[i].email ==email) return true;
+        // }
+        // return false
+
+
+//         let e = array[i].email;
+//         console.log("e"+e)
+//         if (e === email) { //check input value
+//            flag=2;
+//        //   window.location.href='Login.html'
+            
+        
+  
+
+
+
+  //  console.log(arr)
+  // 2- check the data
+//   const admins = JSON.parse(localStorage.getItem('locations'));
+ // console.log(admins)
+
+
+
+// if(flag==2){
+//     alert("user already exists Please Login")
+// }else if(flag==1 ){
+//  alert("Sign Up Successful");
+// }
+// //}
+
+// function error(){
+//     alert("please Sign up")
+// }
+
+
+    </script>
+    
+</body>
+</html>

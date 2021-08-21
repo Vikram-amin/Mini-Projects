@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Movie Website 1</title>
+
+    <style>
+        body{
+          background-color: mediumpurple;
+        }
+        #parent{
+            width: 95%;
+            margin: auto;
+            border: 1.5px solid black;
+            padding: 10px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: flex-end;
+            font-size: 20px;
+            font-weight: 700;
+
+        }
+
+        #parent > a{ 
+            color: black;
+            margin-right: 20px;
+            text-decoration: none;   
+        }
+
+          h1{
+            text-align: center;
+            margin-top: 5%;
+         }
+
+        #sign{
+            max-width: 300px;
+            margin: auto;  
+            background-color:mediumpurple;
+      
+               
+         }
+
+       input{
+             width: 97%;
+             height: 30px;
+             text-align: center;
+             font-size: 16px;
+             font-weight: 700;
+             border: 2px solid teal;
+             margin-top: 20px;
+             
+         }
+
+         input:last-child{
+              width: 45%;
+             height: 30px;
+             margin-left: 30%;
+             background-color: teal;
+             color: white;
+             font-size: 16px;
+             font-weight: 700;
+             /* border: ; */
+         }
+    </style>
+
+</head>
+<body>
+   <div id="parent">
+      
+      <a>Home</a>
+      <a href="Login.html">Login</a>
+      <a href="Signup.html">Signup</a> 
+   </div>
+
+   <h1>Login</h1>
+
+ <div id="sign">
+        <form id="login" onsubmit="startLogin(event)">
+        <input type="text" id="username" placeholder="Enter UserName"/>
+       <input type="password" id="password" placeholder="Enter Password"/>
+       <input type="submit"/>
+    </form>
+</div>
+
+<script>
+
+
+
+function startLogin(e) { //11
+    e.preventDefault(); // prvent default behavior of input submit
+
+    const form = document.getElementById('login')
+    
+    //1- get the data  44
+  const username = form.username.value;
+  //console.log(username)
+  const password = form.password.value;
+  // console.log(password)
+
+
+    // 2- check the data
+  const admins = JSON.parse(localStorage.getItem('locations'));
+ // console.log(admins)
+
+    for (let i = 0; i < admins.length; i++) { //check admin username and password is correct
+        let u = admins[i].name;
+        let p = admins[i].password;
+       // console.log(u,p)
+
+        if (u === username && p === password) { //check input value
+           // alert("succes")
+          window.location.href='Home.html'
+            break;
+        }else {
+            alert("invalid Credentials")
+        }
+    }
+}
+
+
+
+</script>
+    
+</body>
+</html>
