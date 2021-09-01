@@ -67,7 +67,7 @@
 <body>
    <div id="parent">
       
-      <a>Home</a>
+      <a onclick="error()">Home</a>
       <a href="Login.html">Login</a>
       <a href="Signup.html">Signup</a> 
    </div>
@@ -108,7 +108,7 @@ function startLogin(e) { //11
        // console.log(u,p)
 
         if (u === username && p === password) { //check input value
-           // alert("succes")
+            alert("succes")
           window.location.href='Home.html'
             break;
         }else {
@@ -117,6 +117,9 @@ function startLogin(e) { //11
     }
 }
 
+function error(){
+  alert("Please Login")
+}
 
 
 </script>

@@ -101,8 +101,7 @@
 
     <script>
 let data_div=document.getElementById('data')
-let arr=[]
-let flag=0;
+
 function registerHere(){
     let form=document.getElementById("myform");
     let name=form.name.value;
@@ -117,12 +116,11 @@ function registerHere(){
         password,
     };
 
-
     if(name=="" || number=="" || email=="" || password==""){
         alert("plase fill all details")
+    }else{
 
-    }
-
+    let arr;
 
     arr=localStorage.getItem('locations');
     if(arr==null){
@@ -130,48 +128,20 @@ function registerHere(){
     }else{
         arr=JSON.parse(localStorage.getItem("locations"));
     }
-     arr.push(location);
+    arr.push(location);
      localStorage.setItem("locations", JSON.stringify(arr));
-     flag=1
-   
+
+        window.location.href='Login.html'
+
 }
-  console.log(arr)
+ 
+
+}
 
 
-        // for (let i = 0; i < arr.length; i++) { 
-        //     if(arr[i].email ==email) return true;
-        // }
-        // return false
-
-
-//         let e = array[i].email;
-//         console.log("e"+e)
-//         if (e === email) { //check input value
-//            flag=2;
-//        //   window.location.href='Login.html'
-            
-        
-  
-
-
-
-  //  console.log(arr)
-  // 2- check the data
-//   const admins = JSON.parse(localStorage.getItem('locations'));
- // console.log(admins)
-
-
-
-// if(flag==2){
-//     alert("user already exists Please Login")
-// }else if(flag==1 ){
-//  alert("Sign Up Successful");
-// }
-// //}
-
-// function error(){
-//     alert("please Sign up")
-// }
+function error(){
+    alert("please Sign up")
+}
 
 
     </script>
